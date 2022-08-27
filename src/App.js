@@ -43,7 +43,12 @@ export default function App() {
       </div>
       <footer>
         This is an
-        <a href="/" target="_blank" rel="noreferrer" className="github-link">
+        <a
+          href="https://github.com/panasonnik/weather-forecast-react"
+          target="_blank"
+          rel="noreferrer"
+          className="github-link"
+        >
           {" "}
           open-source{" "}
         </a>
