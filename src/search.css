@@ -1,0 +1,28 @@
+.search-city-form {
+  margin-top: 20px;
+}
+#submit-btn,
+.btn-location {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.607);
+  background: #ac7d88;
+  color: white;
+  transition: all 200ms ease-in-out;
+  box-shadow: 2px 2px 8px rgba(164, 155, 155, 0.607);
+}
+#submit-btn:hover {
+  cursor: pointer;
+  background: #85586f;
+  color: white;
+}
+.btn-location {
+  margin-top: 0;
+  background: #fff;
+  color: #ac7d88;
+}
+.btn-location:hover {
+  cursor: pointer;
+  background: #ac7d88;
+  color: #fff;
+}

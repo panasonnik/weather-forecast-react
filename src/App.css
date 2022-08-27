@@ -1,38 +1,73 @@
-.App {
+ul {
+  list-style: none;
+  margin-top: 30px;
+}
+a {
+  text-decoration: none;
+  color: #6f4c5b;
+}
+hr {
+  border-top: 3px solid #000;
+}
+footer {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.active {
+  font-weight: bold;
+}
+.active:hover {
+  cursor: default;
+  color: #6f4c5b;
+}
+.card {
+  width: 60%;
+  background-color: #fff9f9;
+  border-radius: 30px;
+  margin: 50px auto 0;
+  box-shadow: 2px 2px 10px rgba(164, 155, 155, 0.607);
+  font-family: "Roboto Mono", monospace;
+}
+.bold-li {
+  font-weight: bold;
+}
+#main-icon {
+  font-size: 70px;
+  margin: 37px 4px;
+  border: 2px solid #ac7d88;
+  border-radius: 10px;
+}
+.header {
+  margin: 10px 0;
+}
+#temperature {
+  font-size: 90px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.units {
+  font-size: 30px;
+  position: relative;
+  top: -46px;
+  left: -10px;
+  font-weight: normal;
+}
+#description::first-letter {
+  text-transform: capitalize;
+}
+.forecast-day,
+.forecast-temperature {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.forecast-img {
+  display: block;
+  margin: 0 auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.forecast-max-temperature {
+  font-weight: bold;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.github-link {
+  font-weight: bold;
 }
