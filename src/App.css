@@ -51,7 +51,7 @@ footer {
   font-size: 30px;
   position: relative;
   top: -46px;
-  left: -10px;
+  left: 0;
   font-weight: normal;
 }
 #description::first-letter {
@@ -70,4 +70,9 @@ footer {
 }
 .github-link {
   font-weight: bold;
+}
+.App .loader {
+  position: fixed;
+  top: 40%;
+  left: 44%;
 }

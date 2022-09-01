@@ -15,7 +15,7 @@ export default function App() {
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       wind: Math.round(response.data.wind.speed),
-      humidity: response.data.mail.humidity,
+      humidity: response.data.main.humidity,
     });
   }
   if (weatherData.ready) {
@@ -78,23 +78,26 @@ export default function App() {
     );
   } else {
     const apiKey = "63116731662a94eebc651f7bb7447ea1";
-    let city = "Kyiv";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+    let city = "Paris";
+    //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    //axios.get(apiUrl).then(handleResponse);
 
-    /* return (
-      <MutatingDots
-        height="100"
-        width="100"
-        color="#6f4c5b"
-        secondaryColor="#6f4c5b"
-        radius="12.5"
-        ariaLabel="mutating-dots-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-      />
-    ); */
-    return "Loading...";
+    return (
+      <div className="App">
+        <div className="loader">
+          <MutatingDots
+            height="100"
+            width="100"
+            color="#6f4c5b"
+            secondaryColor="#6f4c5b"
+            radius="12.5"
+            ariaLabel="mutating-dots-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+        </div>
+      </div>
+    );
   }
 }
