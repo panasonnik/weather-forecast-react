@@ -79,8 +79,8 @@ export default function App() {
   } else {
     const apiKey = "63116731662a94eebc651f7bb7447ea1";
     let city = "Paris";
-    //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    //axios.get(apiUrl).then(handleResponse);
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
 
     return (
       <div className="App">
