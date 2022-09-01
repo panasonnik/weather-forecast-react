@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-import Search from "./Search";
-import WeatherDetails from "./WeatherDetails";
+import "./search.css";
+import WeatherInfo from "./WeatherInfo";
 import { MutatingDots } from "react-loader-spinner";
 
 export default function App() {
-  let [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState("Kyiv");
+  const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       city: response.data.name,
@@ -20,45 +20,54 @@ export default function App() {
       date: new Date(response.data.dt * 1000),
     });
   }
+  function search(city) {
+    const apiKey = "63116731662a94eebc651f7bb7447ea1";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    search(city);
+  }
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
   if (weatherData.ready) {
     return (
       <div className="App">
         <div className="container">
           <div className="card">
             <div className="card-body">
-              <Search />
-              <div className="row">
+              <div className="Search">
+                <form className="search-city-form" onSubmit={handleSubmit}>
+                  <div className="row">
+                    <div className="col-6">
+                      <div className="input-group mb-3">
+                        <input
+                          type="search"
+                          className="form-control entered-city"
+                          placeholder="Enter the city"
+                          onChange={handleCityChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-auto">
+                      <input
+                        className="form-control"
+                        type="submit"
+                        value="Check weather"
+                        id="submit-btn"
+                      />
+                    </div>
+                  </div>
+                </form>
                 <div className="col-auto">
-                  <img
-                    src="http://openweathermap.org/img/wn/01d@2x.png"
-                    alt={weatherData.description}
-                    id="main-icon"
-                  />
-                </div>
-                <div className="col-6 header">
-                  <h1>
-                    <span id="temperature">{weatherData.temperature}</span>
-                    <span className="units">
-                      <a href="/" className="celsius-link active">
-                        °C
-                      </a>
-                      |
-                      <a href="/" className="fahrenheit-link">
-                        °F
-                      </a>
-                    </span>
-                  </h1>
-                  <h1 id="city">{weatherData.city}</h1>
-                </div>
-                <div className="col-auto">
-                  <WeatherDetails
-                    description={weatherData.description}
-                    humidity={weatherData.humidity}
-                    wind={weatherData.wind}
-                    date={weatherData.date}
-                  />
+                  <button className="btn-location">
+                    <i className="fa-solid fa-location-dot"></i>
+                  </button>
                 </div>
               </div>
+              <WeatherInfo data={weatherData} />
               <hr />
               <div id="forecast-container"></div>
             </div>
@@ -80,11 +89,7 @@ export default function App() {
       </div>
     );
   } else {
-    const apiKey = "63116731662a94eebc651f7bb7447ea1";
-    let primaryCity = "Paris";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${primaryCity}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-
+    search(city);
     return (
       <div className="App">
         <div className="loader">
