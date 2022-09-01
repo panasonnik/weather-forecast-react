@@ -9,6 +9,7 @@ import { MutatingDots } from "react-loader-spinner";
 export default function App() {
   let [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
+    console.log(response.data);
     setWeatherData({
       ready: true,
       city: response.data.name,
@@ -16,6 +17,7 @@ export default function App() {
       description: response.data.weather[0].description,
       wind: Math.round(response.data.wind.speed),
       humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
     });
   }
   if (weatherData.ready) {
@@ -29,7 +31,7 @@ export default function App() {
                 <div className="col-auto">
                   <img
                     src="http://openweathermap.org/img/wn/01d@2x.png"
-                    alt=""
+                    alt={weatherData.description}
                     id="main-icon"
                   />
                 </div>
@@ -53,6 +55,7 @@ export default function App() {
                     description={weatherData.description}
                     humidity={weatherData.humidity}
                     wind={weatherData.wind}
+                    date={weatherData.date}
                   />
                 </div>
               </div>
@@ -78,8 +81,8 @@ export default function App() {
     );
   } else {
     const apiKey = "63116731662a94eebc651f7bb7447ea1";
-    let city = "Paris";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let primaryCity = "Paris";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${primaryCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return (
