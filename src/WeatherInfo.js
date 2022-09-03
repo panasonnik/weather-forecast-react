@@ -1,15 +1,14 @@
 import WeatherDetails from "./WeatherDetails";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <div className="row">
         <div className="col-auto">
-          <img
-            src="http://openweathermap.org/img/wn/01d@2x.png"
-            alt={props.data.description}
-            id="main-icon"
-          />
+          <div id="main-icon">
+            <WeatherIcon iconUrl={props.data.icon} />
+          </div>
         </div>
         <div className="col-6 header">
           <h1>

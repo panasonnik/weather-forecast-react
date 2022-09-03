@@ -18,6 +18,7 @@ export default function App() {
       wind: Math.round(response.data.wind.speed),
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
+      icon: response.data.weather[0].icon,
     });
   }
   function search(city) {
