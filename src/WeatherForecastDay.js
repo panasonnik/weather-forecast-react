@@ -16,11 +16,14 @@ export default function WeatherForecastDay(props) {
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     return days[day];
   }
-  let icon = props.data.weather[0].icon;
   return (
     <div className="WeatherForecastDay">
       <div className="text-center mb-1">{day()}</div>
-      <WeatherIcon iconUrl={icon} size={48} />
+      <WeatherIcon
+        iconUrl={props.data.weather[0].icon}
+        size={48}
+        color={"#3f3339"}
+      />
       <div className="WeatherForecast-temperature text-center">
         <span className="forecast-temperature-min text-muted">
           {maxTemperature()}/{" "}

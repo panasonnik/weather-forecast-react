@@ -8,7 +8,7 @@ export default function WeatherInfo(props) {
       <div className="row">
         <div className="col-auto">
           <div id="main-icon">
-            <WeatherIcon iconUrl={props.data.icon} size={90} />
+            <WeatherIcon iconUrl={props.data.icon} size={90} color="#6f4c5b" />
           </div>
         </div>
         <div className="col-6 header">
