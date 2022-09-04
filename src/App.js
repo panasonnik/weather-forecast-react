@@ -5,6 +5,7 @@ import "./App.css";
 import "./search.css";
 import WeatherInfo from "./WeatherInfo";
 import { MutatingDots } from "react-loader-spinner";
+import WeatherForecast from "./WeatherForecast";
 
 export default function App() {
   const [city, setCity] = useState("Kyiv");
@@ -70,7 +71,7 @@ export default function App() {
               </div>
               <WeatherInfo data={weatherData} />
               <hr />
-              <div id="forecast-container"></div>
+              <WeatherForecast />
             </div>
           </div>
         </div>

@@ -54,17 +54,12 @@ footer {
 #description::first-letter {
   text-transform: capitalize;
 }
-.forecast-day,
-.forecast-temperature {
-  text-align: center;
-}
-.forecast-img {
+
+.WeatherForecast canvas {
   display: block;
   margin: 0 auto;
 }
-.forecast-max-temperature {
-  font-weight: bold;
-}
+
 .github-link {
   font-weight: bold;
 }
