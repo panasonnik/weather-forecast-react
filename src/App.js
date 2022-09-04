@@ -14,6 +14,7 @@ export default function App() {
     setWeatherData({
       ready: true,
       city: response.data.name,
+      coordinates: response.data.coord,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       wind: Math.round(response.data.wind.speed),
@@ -71,7 +72,7 @@ export default function App() {
               </div>
               <WeatherInfo data={weatherData} />
               <hr />
-              <WeatherForecast />
+              <WeatherForecast coordinates={weatherData.coordinates} />
             </div>
           </div>
         </div>
